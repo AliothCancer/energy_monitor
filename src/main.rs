@@ -17,7 +17,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     env_logger::Builder::new()
         .filter_level(LevelFilter::Info) // Set log level
         .init();
-    
+
     let mut has_been_notified_80 = false;
     let mut has_been_notified_20 = false;
 

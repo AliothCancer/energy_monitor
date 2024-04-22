@@ -19,11 +19,9 @@ enum ConfigOption {
 }
 
 impl Config {
-    fn validate_field(field: &str){
+    fn validate_field(field: &str) {
         match field {
-            "battery_notifier" 
-            | "health_stats"
-            | "write_every" => (),
+            "battery_notifier" | "health_stats" | "write_every" => (),
             _ => {
                 log::error!("Provided field:'{field}' is not a valid config field");
                 panic!()
@@ -39,10 +37,7 @@ impl Config {
             .take(3)
             .map(|line| {
                 let mut splitted_line = line.split('=');
-
-                
                 let option_name = splitted_line.next().unwrap().trim();
-                
                 Config::validate_field(option_name);
 
                 let option_value = match splitted_line.next(){
