@@ -1,0 +1,2 @@
+battery_notifier=true
+health_stats=true
