@@ -21,7 +21,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut has_been_notified_80 = false;
     let mut has_been_notified_20 = false;
 
-    let config = Config::get("data/config.txt");
+    let config = Config::get("../data/config.txt");
     println!("{config:?}");
     let battery_notifier = config.battery_notifier();
     let write_health_stats = config.health_stats();
