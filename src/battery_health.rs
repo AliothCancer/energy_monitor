@@ -46,12 +46,18 @@ impl BatteryStatistics {
     }
 }
 
+impl Default for BatteryStatistics {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 pub fn get_battery_state() -> Result<String, io::Error> {
     let battery_path = Path::new(BATTERY_FILES_PATH);
 
     let status = battery_path.join("status");
 
-    Ok(read_file_as_string(&status)?)
+    read_file_as_string(&status)
 }
 
 pub fn get_battery_percentage() -> io::Result<f32> {
