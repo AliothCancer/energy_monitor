@@ -21,7 +21,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut has_been_notified_80 = false;
     let mut has_been_notified_20 = false;
 
-    let config = Config::get("../data/config.txt");
+    let config = Config::get("data/config.txt");
+
     println!("{config:?}");
     let battery_notifier = config.battery_notifier();
     let write_health_stats = config.health_stats();
@@ -35,17 +36,20 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
     });
 
-    if write_health_stats {
-        match health_stats(write_every) {
-            Ok(_) => (),
-            Err(err) => {
-                println!("{err}")
-            }
+    let handle2 = thread::spawn(move || {
+        if write_health_stats {
+            match health_stats(write_every) {
+                Ok(_) => (),
+                Err(err) => {
+                    println!("{err}")
+                }
+            };
+            //println!("write stats")
         };
-        //println!("write stats")
-    };
+    });
 
     handle1.join().expect("Thread 1 panicked");
+    handle2.join().expect("Thread 2 panicked");
     Ok(())
 }
 

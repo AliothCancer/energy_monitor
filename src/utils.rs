@@ -1,8 +1,8 @@
 use std::error::Error;
-use std::fmt;
 use std::fs::File;
 use std::io::{self, Read};
 use std::path::Path;
+use std::{env, fmt};
 
 #[derive(Debug)]
 pub struct Config {
@@ -29,8 +29,16 @@ impl Config {
         }
     }
     pub fn get(path: &str) -> Self {
-        let config = read_file_as_string(Path::new(path)).unwrap();
-        println!("config read");
+        let Ok(config) = read_file_as_string(Path::new(path)) else {
+            if let Ok(current_dir) = env::current_dir() {
+                println!("Current working directory: {}", current_dir.display());
+                println!("Tried to access {} from {}",path,current_dir.display());
+            } else {
+                eprintln!("Failed to get the current working directory");
+            };
+            eprintln!("Failed to find config file");
+            panic!()
+        };
 
         let config = config
             .split('\n')
