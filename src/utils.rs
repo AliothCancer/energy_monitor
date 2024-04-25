@@ -32,7 +32,7 @@ impl Config {
         let Ok(config) = read_file_as_string(Path::new(path)) else {
             if let Ok(current_dir) = env::current_dir() {
                 println!("Current working directory: {}", current_dir.display());
-                println!("Tried to access {} from {}",path,current_dir.display());
+                println!("Tried to access {} from {}", path, current_dir.display());
             } else {
                 eprintln!("Failed to get the current working directory");
             };
