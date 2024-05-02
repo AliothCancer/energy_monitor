@@ -35,6 +35,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     //println!("{battery_notifier}{h_stats}");
     let handle1 = thread::spawn(move || {
         if battery_notifier {
+            thread::sleep(Duration::from_secs(1));
             notifier(&mut has_been_notified_80, &mut has_been_notified_20);
             println!("notify")
         }
@@ -91,6 +92,14 @@ pub fn health_stats(write_timer: u64) -> Result<(), Box<dyn Error>> {
 
         let now_date = format!("{}", today.format("%d/%m/%Y"));
         let now_hour = format!("{}", today.format("%H:%M"));
+        let now_hour_as_float = {
+            let hours : f32 = format!("{}", today.format("%H")).parse().unwrap();
+            let minutes : f32 = format!("{}", today.format("%M")).parse().unwrap();
+
+            let minutes_in_hours = minutes / 60.0;
+
+            hours + minutes_in_hours
+        };
 
         // Open or create the CSV file
         let file_path = Path::new(DATA_FILE_PATH);
@@ -103,14 +112,14 @@ pub fn health_stats(write_timer: u64) -> Result<(), Box<dyn Error>> {
         if file.metadata()?.len() == 0 {
             writeln!(
                 file,
-                "Date,Hour,Charge_Full,Charge_Full_Design,Battery_Health,Battery_Percentage,Battery_Status"
+                "Date,Hour_str,Hour_f32,Charge_Full,Charge_Full_Design,Battery_Health,Battery_Percentage,Battery_Status"
             )?;
         }
 
         // Write data to the CSV file
         writeln!(
             file,
-            "{now_date},{now_hour},{charge_full},{charge_full_design},{battery_health},{battery_percentage},{battery_status}"
+            "{now_date},{now_hour},{now_hour_as_float},{charge_full},{charge_full_design},{battery_health},{battery_percentage},{battery_status}"
         )?;
 
         println!("Battery health stats written to battery_stats.csv");
@@ -120,6 +129,7 @@ pub fn health_stats(write_timer: u64) -> Result<(), Box<dyn Error>> {
 }
 
 fn notifier(has_been_notified_80: &mut bool, has_been_notified_20: &mut bool) {
+    
     notify_percentage("N/A", "notifier is running");
     loop {
         let battery_state = BatteryState::match_string(&get_battery_state().unwrap());
