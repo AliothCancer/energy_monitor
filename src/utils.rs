@@ -103,6 +103,12 @@ impl Config {
 }
 
 pub fn notify_percentage(level: &str, message: &str) {
+std::process::Command::new("paplay")
+    .arg("/usr/share/sounds/freedesktop/stereo/complete.oga")
+    .output()
+    .expect("errore con paplay");
+
+
     let title = format!("Batteria {}!", level);
     std::process::Command::new("notify-send")
         .arg(title)

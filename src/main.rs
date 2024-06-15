@@ -37,7 +37,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         if battery_notifier {
             thread::sleep(Duration::from_secs(1));
             notifier(&mut has_been_notified_80, &mut has_been_notified_20);
-            println!("notify")
+            //println!("notify")
         }
     });
 
