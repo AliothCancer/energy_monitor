@@ -1,5 +1,5 @@
 battery_notifier = true
-health_stats= true
+health_stats= false
 write_every = 5
 _______________________________________
 WRITING UNDER THIS LINE WON'T AFFECT THE PROGRAM

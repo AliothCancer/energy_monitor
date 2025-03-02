@@ -1,18 +1,20 @@
+pub mod ardu;
 pub mod battery_health;
 pub mod secret_info;
 pub mod utils;
 
+use ardu::{ArduCommand, ArduSketch};
 use battery_health::*;
 use log::LevelFilter;
 use secret_info::{CONFIG_FILE_PATH, DATA_FILE_PATH}; // config file and the csv file in which to store data
 use std::io::Write;
+use std::thread::sleep;
 use std::{error::Error, fs::OpenOptions, path::Path, thread, time::Duration};
 use utils::notify_percentage;
 use utils::Config;
+// use battery_health::BatteryState;
 
-
-
-const CHARGE_UPPER_LIMIT: f32 = 80.0;
+const CHARGE_UPPER_LIMIT: f32 = 74.0;
 const DISCHARGE_LOWER_LIMIT: f32 = 20.0;
 //const WRITE_BATTERY_HEALTH_STATS_EVERY: u64 = 5; // minutes
 const BATTERY_CHECK_TIME: u64 = 20;
@@ -54,8 +56,41 @@ fn main() -> Result<(), Box<dyn Error>> {
         };
     });
 
+    let do_nothing_cmd = ArduCommand {
+        command_type: ArduSketch::DoNothing,
+        state: ardu::CommandState::Stopped,
+    };
+
+    let connect_cmd = ArduCommand {
+        command_type: ArduSketch::Connect,
+        state: ardu::CommandState::Stopped,
+    };
+    let disconnect_cmd = ArduCommand {
+        command_type: ArduSketch::Disconnect,
+        state: ardu::CommandState::Stopped,
+    };
+    let handle3 = thread::spawn(move || loop {
+        
+        let batt_perc = get_battery_percentage().expect("Failed getting batt percentage");
+        let batt_state = BatteryState::match_string(&get_battery_state().unwrap());
+        match (batt_perc, batt_state){
+            (0_f32..CHARGE_UPPER_LIMIT, BatteryState::Discharging) => {
+                connect_cmd.execute();
+            },
+            (CHARGE_UPPER_LIMIT..100_f32, BatteryState::Charging) => {
+                disconnect_cmd.execute();
+            },
+            (_, _) =>{
+                do_nothing_cmd.execute();
+            }
+        }
+        
+        sleep(Duration::from_secs(3));
+    });
+
     handle1.join().expect("Thread 1 panicked");
     handle2.join().expect("Thread 2 panicked");
+    handle3.join().expect("Thread 3 panicked");
     Ok(())
 }
 
@@ -93,8 +128,8 @@ pub fn health_stats(write_timer: u64) -> Result<(), Box<dyn Error>> {
         let now_date = format!("{}", today.format("%d/%m/%Y"));
         let now_hour = format!("{}", today.format("%H:%M"));
         let now_hour_as_float = {
-            let hours : f32 = format!("{}", today.format("%H")).parse().unwrap();
-            let minutes : f32 = format!("{}", today.format("%M")).parse().unwrap();
+            let hours: f32 = format!("{}", today.format("%H")).parse().unwrap();
+            let minutes: f32 = format!("{}", today.format("%M")).parse().unwrap();
 
             let minutes_in_hours = minutes / 60.0;
 
@@ -122,14 +157,14 @@ pub fn health_stats(write_timer: u64) -> Result<(), Box<dyn Error>> {
             "{now_date},{now_hour},{now_hour_as_float},{charge_full},{charge_full_design},{battery_health},{battery_percentage},{battery_status}"
         )?;
 
-        println!("Battery health stats written to battery_stats.csv");
+        println!("Battery health stats written to {}", DATA_FILE_PATH);
         thread::sleep(Duration::from_secs(write_timer * 60));
     }
     Ok(())
 }
 
+/// Will notify and if enabled will also flash a script to move the stepper to connect the charger
 fn notifier(has_been_notified_80: &mut bool, has_been_notified_20: &mut bool) {
-    
     notify_percentage("N/A", "notifier is running");
     loop {
         let battery_state = BatteryState::match_string(&get_battery_state().unwrap());

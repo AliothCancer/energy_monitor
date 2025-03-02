@@ -82,12 +82,14 @@ pub fn get_battery_percentage() -> io::Result<f32> {
 pub enum BatteryState {
     Discharging,
     Charging,
+    Full
 }
 impl BatteryState {
     pub fn match_string(str_state: &str) -> Self {
         match str_state {
             "Discharging" => Self::Discharging,
             "Charging" => Self::Charging,
+            "Full" => Self::Full,
             _ => panic!("Invalid str_state"),
         }
     }

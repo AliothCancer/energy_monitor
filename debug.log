@@ -1,0 +1,76 @@
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/Dockerfile.*", re: "(?-u)^.*/Dockerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('D'), Literal('o'), Literal('c'), Literal('k'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/dockerfile.*", re: "(?-u)^.*/dockerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('d'), Literal('o'), Literal('c'), Literal('k'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/Containerfile.*", re: "(?-u)^.*/Containerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('C'), Literal('o'), Literal('n'), Literal('t'), Literal('a'), Literal('i'), Literal('n'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/containerfile.*", re: "(?-u)^.*/containerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('c'), Literal('o'), Literal('n'), Literal('t'), Literal('a'), Literal('i'), Literal('n'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/.*ignore", re: "(?-u)^.*/\\..*ignore$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('.'), ZeroOrMore, Literal('i'), Literal('g'), Literal('n'), Literal('o'), Literal('r'), Literal('e')]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/BUILD.*", re: "(?-u)^.*/BUILD\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('B'), Literal('U'), Literal('I'), Literal('L'), Literal('D'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/.env.*", re: "(?-u)^.*/\\.env\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('.'), Literal('e'), Literal('n'), Literal('v'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/.envrc.*", re: "(?-u)^.*/\\.envrc\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('.'), Literal('e'), Literal('n'), Literal('v'), Literal('r'), Literal('c'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/conf/*/*.{inc,conf}", re: "(?-u)^.*/conf/.*/.*\\.(?:conf|inc)$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('c'), Literal('o'), Literal('n'), Literal('f'), Literal('/'), ZeroOrMore, Literal('/'), ZeroOrMore, Literal('.'), Alternates([Tokens([Literal('c'), Literal('o'), Literal('n'), Literal('f')]), Tokens([Literal('i'), Literal('n'), Literal('c')])])]) }
+2025-02-13T00:50:44.886 globset [DEBUG] glob converted to regex: Glob { glob: "*/Jenkinsfile.*", re: "(?-u)^.*/Jenkinsfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('J'), Literal('e'), Literal('n'), Literal('k'), Literal('i'), Literal('n'), Literal('s'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:50:44.886 globset [DEBUG] built glob set; 1 literals, 0 basenames, 0 extensions, 0 prefixes, 145 suffixes, 11 required extensions, 10 regexes
+2025-02-13T00:50:44.896 mio::poll [TRACE] registering event source with poller: token=Token(94745652641920), interests=READABLE | WRITABLE
+2025-02-13T00:50:44.896 mio::poll [TRACE] registering event source with poller: token=Token(94745653462400), interests=READABLE | WRITABLE
+2025-02-13T00:50:44.896 mio::poll [TRACE] registering event source with poller: token=Token(0), interests=READABLE
+2025-02-13T00:50:44.896 mio::poll [TRACE] registering event source with poller: token=Token(1), interests=READABLE
+2025-02-13T00:50:44.897 helix_tui::backend::crossterm [DEBUG] The keyboard enhancement protocol is not supported in this terminal (checked in 514.29µs)
+2025-02-13T00:50:44.897 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:50:45.146 helix_term::application [DEBUG] received editor event: IdleTimer
+2025-02-13T00:50:45.282 helix_term::application [DEBUG] received editor event: Redraw
+2025-02-13T00:50:45.282 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:50:46.391 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:50:46.630 helix_term::application [DEBUG] received editor event: IdleTimer
+2025-02-13T00:50:47.604 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:50:47.854 helix_term::application [DEBUG] received editor event: IdleTimer
+2025-02-13T00:50:48.089 helix_term::commands::typed [DEBUG] quitting...
+2025-02-13T00:50:48.089 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:50:48.515 helix_term::commands::typed [DEBUG] quitting...
+2025-02-13T00:50:48.515 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:50:48.515 helix_term::job [DEBUG] waiting on jobs...
+2025-02-13T00:50:48.515 helix_term::job [DEBUG] waiting on jobs...
+2025-02-13T00:50:48.518 mio::poll [TRACE] deregistering event source from poller
+2025-02-13T00:50:48.518 mio::poll [TRACE] deregistering event source from poller
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/Dockerfile.*", re: "(?-u)^.*/Dockerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('D'), Literal('o'), Literal('c'), Literal('k'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/dockerfile.*", re: "(?-u)^.*/dockerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('d'), Literal('o'), Literal('c'), Literal('k'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/Containerfile.*", re: "(?-u)^.*/Containerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('C'), Literal('o'), Literal('n'), Literal('t'), Literal('a'), Literal('i'), Literal('n'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/containerfile.*", re: "(?-u)^.*/containerfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('c'), Literal('o'), Literal('n'), Literal('t'), Literal('a'), Literal('i'), Literal('n'), Literal('e'), Literal('r'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/.*ignore", re: "(?-u)^.*/\\..*ignore$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('.'), ZeroOrMore, Literal('i'), Literal('g'), Literal('n'), Literal('o'), Literal('r'), Literal('e')]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/BUILD.*", re: "(?-u)^.*/BUILD\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('B'), Literal('U'), Literal('I'), Literal('L'), Literal('D'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/.env.*", re: "(?-u)^.*/\\.env\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('.'), Literal('e'), Literal('n'), Literal('v'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/.envrc.*", re: "(?-u)^.*/\\.envrc\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('.'), Literal('e'), Literal('n'), Literal('v'), Literal('r'), Literal('c'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/conf/*/*.{inc,conf}", re: "(?-u)^.*/conf/.*/.*\\.(?:conf|inc)$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('c'), Literal('o'), Literal('n'), Literal('f'), Literal('/'), ZeroOrMore, Literal('/'), ZeroOrMore, Literal('.'), Alternates([Tokens([Literal('c'), Literal('o'), Literal('n'), Literal('f')]), Tokens([Literal('i'), Literal('n'), Literal('c')])])]) }
+2025-02-13T00:51:11.952 globset [DEBUG] glob converted to regex: Glob { glob: "*/Jenkinsfile.*", re: "(?-u)^.*/Jenkinsfile\\..*$", opts: GlobOptions { case_insensitive: false, literal_separator: false, backslash_escape: true, empty_alternates: false }, tokens: Tokens([ZeroOrMore, Literal('/'), Literal('J'), Literal('e'), Literal('n'), Literal('k'), Literal('i'), Literal('n'), Literal('s'), Literal('f'), Literal('i'), Literal('l'), Literal('e'), Literal('.'), ZeroOrMore]) }
+2025-02-13T00:51:11.952 globset [DEBUG] built glob set; 1 literals, 0 basenames, 0 extensions, 0 prefixes, 145 suffixes, 11 required extensions, 10 regexes
+2025-02-13T00:51:11.962 mio::poll [TRACE] registering event source with poller: token=Token(94079784511232), interests=READABLE | WRITABLE
+2025-02-13T00:51:11.962 mio::poll [TRACE] registering event source with poller: token=Token(94079784511616), interests=READABLE | WRITABLE
+2025-02-13T00:51:11.962 mio::poll [TRACE] registering event source with poller: token=Token(0), interests=READABLE
+2025-02-13T00:51:11.962 mio::poll [TRACE] registering event source with poller: token=Token(1), interests=READABLE
+2025-02-13T00:51:11.963 helix_tui::backend::crossterm [DEBUG] The keyboard enhancement protocol is not supported in this terminal (checked in 518.928µs)
+2025-02-13T00:51:11.963 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:12.213 helix_term::application [DEBUG] received editor event: IdleTimer
+2025-02-13T00:51:12.347 helix_term::application [DEBUG] received editor event: Redraw
+2025-02-13T00:51:12.348 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:14.648 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:14.899 helix_term::application [DEBUG] received editor event: IdleTimer
+2025-02-13T00:51:18.675 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:18.862 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:20.672 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:24.060 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:24.435 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:24.791 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:25.045 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:25.493 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:25.888 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:26.243 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:30.866 helix_view::editor [DEBUG] editor status: Current working directory is /home/giulio/Scrivania/WorkingArea/energy_monitor
+2025-02-13T00:51:30.866 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:35.713 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:35.965 helix_term::application [DEBUG] received editor event: IdleTimer
+2025-02-13T00:51:37.313 helix_term::commands::typed [DEBUG] quitting...
+2025-02-13T00:51:37.314 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:37.612 helix_term::commands::typed [DEBUG] quitting...
+2025-02-13T00:51:37.612 helix_view::document [DEBUG] id 1 modified - last saved: 0, current: 0
+2025-02-13T00:51:37.612 helix_term::job [DEBUG] waiting on jobs...
+2025-02-13T00:51:37.613 helix_term::job [DEBUG] waiting on jobs...
+2025-02-13T00:51:37.615 mio::poll [TRACE] deregistering event source from poller
+2025-02-13T00:51:37.615 mio::poll [TRACE] deregistering event source from poller
